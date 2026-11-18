@@ -1,0 +1,3 @@
+# Packages for the portable Python, exact versions (pip freeze format).
+# codex_usage.py and its tests need only the standard library, so there are none;
+# python_setup.ps1 then skips pip. Add a package here when a script needs one.

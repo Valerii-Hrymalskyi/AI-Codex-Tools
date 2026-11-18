@@ -1,0 +1,14 @@
+# Portable Python and other binaries: installed locally, never committed
+Utils/Bin/
+
+# Python
+__pycache__/
+*.pyc
+
+# Runtime state of scripts (logs, queues): machine- and user-specific
+logs/
+processed/
+inbox/
+
+# Scratch
+*.tmp

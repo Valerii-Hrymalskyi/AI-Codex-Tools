@@ -1,0 +1,26 @@
+# Offline tests only: no Codex, no account, no quota spent.
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: powershell   # Windows PowerShell 5.1, as on the users' machines
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Portable Python (pinned version, SHA-256 checked) and packages
+        run: .\python_setup.ps1
+
+      - name: GetUsage tests
+        run: .\Utils\Bin\Windows\Python3\python.exe Projects\GetUsage\test_codex_usage.py -v
